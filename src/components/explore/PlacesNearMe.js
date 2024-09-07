@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function PlacesNearMe() {
   const places = [
@@ -55,8 +56,10 @@ export function PlacesNearMe() {
                 style={{ aspectRatio: "400/225", objectFit: "cover" }}
               />
               <div className="p-4">
-                <h3 className="text-lg font-bold">{place.name}</h3>
-                <p className="text-gray-500">{place.location}</p>
+                <Link href={`/explore/${slugify(place.name)}`}>
+                  <h3 className="text-lg font-bold">{place.name}</h3>
+                  <p className="text-gray-500">{place.location}</p>
+                </Link>
               </div>
             </div>
           ))}
@@ -191,4 +194,8 @@ function UserIcon(props) {
       <circle cx="12" cy="7" r="4" />
     </svg>
   );
+}
+
+function slugify(text) {
+  return text.toLowerCase().replace(/ /g, "-");
 }
