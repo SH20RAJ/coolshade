@@ -23,7 +23,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-col sm:flex-row sm:space-x-4">
               {/* Button for Helpers */}
               <motion.a
-                href="#"
+                href="/join"
                 className="flex items-center justify-center px-8 py-3 text-lg font-semibold text-black bg-yellow-400 rounded-full shadow-lg hover:bg-yellow-300 focus:ring-4 focus:ring-yellow-500"
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}

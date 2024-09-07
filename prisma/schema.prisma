@@ -1,14 +1,91 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  role      Role      @default(USER)  // Define roles for user and helper
+  posts     Post[]    // One-to-many relationship with posts
+  comments  Comment[] // One-to-many relationship with comments
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Helper {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String    @unique
+  password  String
+  expertise String    // Field to define expertise area of the helper
+  posts     Post[]    // Helpers may also contribute content
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Post {
+  id          Int           @id @default(autoincrement())
+  title       String
+  content     String
+  user        User?         @relation(fields: [userId], references: [id])
+  userId      Int?
+  helper      Helper?       @relation(fields: [helperId], references: [id])
+  helperId    Int?
+  comments    Comment[]     // One-to-many relationship with comments
+  location    Location?     @relation(fields: [locationId], references: [id]) // Related to cultural spots
+  locationId  Int?
+  culturalEvent CulturalEvent? @relation(fields: [culturalEventId], references: [id])
+  culturalEventId Int?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  content   String
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  post      Post      @relation(fields: [postId], references: [id])
+  postId    Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Location {
+  id        Int       @id @default(autoincrement())
+  name      String
+  description String
+  latitude  Float
+  longitude Float
+  posts     Post[]    // Cultural spots can have posts associated
+  culturalEvents CulturalEvent[] // Add this line
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model CulturalEvent {
+  id        Int       @id @default(autoincrement())
+  name      String
+  description String
+  date      DateTime
+  location  Location  @relation(fields: [locationId], references: [id])
+  locationId Int
+  posts     Post[]    // Cultural events can have posts associated
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+// Enum for user roles
+enum Role {
+  USER
+  HELPER
+  ADMIN
 }

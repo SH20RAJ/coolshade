@@ -1,17 +1,17 @@
 # India's Cultural Heritage and Tourism Platform
 
-This project is designed to showcase the rich cultural heritage and traditions of India, providing a platform for tourists to discover and explore local foods, drinks, cultural aspects, and tourist spots in various regions. It allows locals and tourists to contribute verified information to create an authentic and immersive experience for users.
+This project is designed to showcase the rich cultural heritage and traditions of India, providing a platform for tourists to discover and explore local foods, drinks, cultural aspects, and tourist spots in various regions. It allows natives and tourists to contribute verified information to create an authentic and immersive experience for users.
 
 ### Project Overview
 
 This web-based platform has two main goals:
-1. **For Tourists**: Help tourists discover authentic local foods, drinks, special places, and cultural experiences from various regions of India. It provides real and verified information directly from locals and tourists who have visited the area.
-2. **For Locals**: Enable locals to share their knowledge and contribute content related to their region's culture, food, drinks, and places. They help verify and validate information for tourists.
+1. **For Tourists**: Help tourists discover authentic local foods, drinks, special places, and cultural experiences from various regions of India. It provides real and verified information directly from natives and tourists who have visited the area.
+2. **For Natives**: Enable natives to share their knowledge and contribute content related to their region's culture, food, drinks, and places. They help verify and validate information for tourists.
 
 ### Key Features
 
-- **User Profiles and Contributions**: Users (locals and tourists) create accounts, upload information on foods, drinks, places to visit, and cultural practices.
-- **Verification System**: Content is verified by both locals and tourists to ensure accuracy and authenticity.
+- **User Profiles and Contributions**: Users (natives and tourists) create accounts, upload information on foods, drinks, places to visit, and cultural practices.
+- **Verification System**: Content is verified by both natives and tourists to ensure accuracy and authenticity.
 - **Search and Filter**: Tourists can search by city or region and view categorized content on foods, drinks, places, and culture.
 - **Comments & Feedback**: A comment section allows users to share their experiences or provide additional input on posts.
 - **Interactive Map**: A dynamic map that highlights cultural spots and places of interest in proximity to the user.
@@ -25,7 +25,7 @@ This project is structured in the following way:
 - **Backend**: API and database management for storing user content, verification data, and cultural information.
 - **Frontend**: User-friendly interface with interactive maps, dynamic content categorization, and multimedia support.
 - **User Authentication**: A secure login system to manage user accounts, contributions, and feedback.
-- **Content Verification**: A robust verification system allowing locals and tourists to verify the authenticity of posts.
+- **Content Verification**: A robust verification system allowing natives and tourists to verify the authenticity of posts.
   
 ### Installation and Setup
 

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
+import Link from 'next/link';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,55 +16,43 @@ export default function Navbar() {
       <div className="container mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
         <div className="text-white text-3xl font-bold">
-          Cool Shade
+          <span className="text-yellow-400">Cool</span>Shade
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.1 }}
-            className="text-white text-lg hover:underline"
-          >
-            Home
-          </motion.a>
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.1 }}
-            className="text-white text-lg hover:underline"
-          >
-            Features
-          </motion.a>
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.1 }}
-            className="text-white text-lg hover:underline"
-          >
-            About Us
-          </motion.a>
-          <motion.a
-            href="#"
-            whileHover={{ scale: 1.1 }}
-            className="text-white text-lg hover:underline"
-          >
-            Contact
-          </motion.a>
-
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Link href="#" className="text-white text-lg hover:underline">
+              Home
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Link href="#features" className="text-white text-lg hover:underline">
+              Features
+            </Link>
+          </motion.div>
+          {/* add faqs and testimonials */}
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Link href="#faqs" className="text-white text-lg hover:underline">
+              FAQs
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }}>
+            <Link href="#testimonials" className="text-white text-lg hover:underline">
+              Testimonials
+            </Link>
+          </motion.div>
           {/* Buttons */}
-          <motion.a
-            href="#"
-            className="px-4 py-2 text-black bg-yellow-400 rounded-full font-semibold hover:bg-yellow-300"
-            whileHover={{ scale: 1.05 }}
-          >
-            Join as Helper
-          </motion.a>
-          <motion.a
-            href="#"
-            className="px-4 py-2 text-white bg-gray-900 rounded-full font-semibold hover:bg-gray-700"
-            whileHover={{ scale: 1.05 }}
-          >
-            Explore as User
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link href="/join" className="px-4 py-2 text-black bg-yellow-400 rounded-full font-semibold hover:bg-yellow-300">
+              Join as Helper
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link href="/join" className="px-4 py-2 text-white bg-gray-900 rounded-full font-semibold hover:bg-gray-700">
+              Explore as User
+            </Link>
+          </motion.div>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -103,19 +92,19 @@ export default function Navbar() {
               <div className="p-4">
                 <nav>
                   <ul className="flex flex-col space-y-4">
-                    <li><a href="#" className=" text-lg hover:underline">Home</a></li>
-                    <li><a href="#" className=" text-lg hover:underline">Features</a></li>
-                    <li><a href="#" className=" text-lg hover:underline">About Us</a></li>
-                    <li><a href="#" className=" text-lg hover:underline">Contact</a></li>
+                    <li><Link href="#" className=" text-lg hover:underline">Home</Link></li>
+                    <li><Link href="#features" className=" text-lg hover:underline">Features</Link></li>
+                    <li><Link href="#faqs" className=" text-lg hover:underline">FAQs</Link></li>
+                    <li><Link href="#testimonials" className=" text-lg hover:underline">Testimonials</Link></li>
                     <li>
-                      <a href="#" className="block px-4 py-2 text-black bg-yellow-400 rounded-full font-semibold text-center hover:bg-yellow-300">
+                      <Link href="/join" className="block px-4 py-2 text-black bg-yellow-400 rounded-full font-semibold text-center hover:bg-yellow-300">
                         Join as Helper
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="#" className="block px-4 py-2 text-white bg-gray-900 rounded-full font-semibold text-center hover:bg-gray-700">
+                      <Link href="/join" className="block px-4 py-2 text-white bg-gray-900 rounded-full font-semibold text-center hover:bg-gray-700">
                         Explore as User
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </nav>
