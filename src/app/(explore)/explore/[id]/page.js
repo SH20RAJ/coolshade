@@ -1,13 +1,10 @@
 "use client";
 
-import React from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
-import { StarIcon, BadgeCheckIcon } from "lucide-react";
-import { Gallery } from "@/components/gallery";
+import { StarIcon } from "lucide-react";
 
 export default function PlaceShowcasePage() {
 	const place = {
@@ -28,24 +25,8 @@ export default function PlaceShowcasePage() {
 		],
 	};
 
-	const touristGuides = [
-		{
-			id: 1,
-			name: "Amit Roy",
-			rating: 4.5,
-			badges: ["Experienced", "Certified"],
-			phone: "+91 98765 43210",
-			image: "https://randomuser.me/api/portraits/men/32.jpg",
-		},
-		{
-			id: 2,
-			name: "Priya Gupta",
-			rating: 4.8,
-			badges: ["Top Guide", "Local Expert"],
-			phone: "+91 98765 67890",
-			image: "https://randomuser.me/api/portraits/women/44.jpg",
-		},
-	];
+	// State to handle modal view
+	const [selectedImage, setSelectedImage] = useState(null);
 
 	return (
 		<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -74,12 +55,12 @@ export default function PlaceShowcasePage() {
 
 				{/* Action Buttons */}
 				<div className="flex space-x-4 mt-6">
-					<Link href={place.wiki}>
-						<Button variant="link">Wikipedia</Button>
-					</Link>
-					<Link href={place.googleSearch}>
-						<Button variant="link">Google Search</Button>
-					</Link>
+					<Button variant="link" href={place.wiki}>
+						Wikipedia
+					</Button>
+					<Button variant="link" href={place.googleSearch}>
+						Google Search
+					</Button>
 				</div>
 
 				{/* Star Ratings */}
@@ -99,82 +80,52 @@ export default function PlaceShowcasePage() {
 				</div>
 			</motion.div>
 
-			{/* Media Gallery */}
+			{/* Modern Media Gallery */}
 			<div className="mt-10">
 				<h2 className="text-2xl font-bold mb-4">Media Gallery</h2>
-				<div className="flex overflow-x-auto space-x-4">
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 					{place.media.map((mediaUrl, index) => (
 						<motion.div
 							key={index}
-							className="min-w-[300px] h-[200px] rounded-lg overflow-hidden shadow-lg"
-							whileHover={{ scale: 1.05 }}
+							className="relative group overflow-hidden rounded-lg shadow-lg"
+							whileHover={{ scale: 1.02 }}
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ duration: 0.5 }}
+							onClick={() => setSelectedImage(mediaUrl)}
 						>
 							<img
 								src={mediaUrl}
 								alt={`media-${index}`}
-								className="w-full h-full object-cover"
+								className="w-full h-64 object-cover transition-transform duration-300 transform group-hover:scale-105"
 							/>
+							<div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+								<p className="text-white text-lg font-bold">View Image</p>
+							</div>
 						</motion.div>
 					))}
 				</div>
 			</div>
 
-			{/* Tourist Guides Section */}
-			<div className="mt-10">
-				<h2 className="text-2xl font-bold mb-6">Tourist Guides</h2>
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{touristGuides.map((guide) => (
-						<motion.div
-							key={guide.id}
-							className="bg-white p-6 rounded-lg shadow-lg text-center"
-							whileHover={{ scale: 1.05 }}
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ duration: 0.5 }}
+			{/* Image Modal */}
+			{selectedImage && (
+				<div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+					<div className="relative">
+						<img
+							src={selectedImage}
+							alt="Selected"
+							className="w-auto max-h-[80vh] rounded-lg shadow-lg"
+						/>
+						<Button
+							variant="link"
+							className="absolute top-4 right-4 text-white text-2xl"
+							onClick={() => setSelectedImage(null)}
 						>
-							<Avatar className="w-24 h-24 mx-auto">
-								<AvatarImage src={guide.image} alt={guide.name} />
-								<AvatarFallback>{guide.name[0]}</AvatarFallback>
-							</Avatar>
-							<h3 className="text-xl font-bold mt-4">{guide.name}</h3>
-							<p className="text-gray-600">Phone: {guide.phone}</p>
-							{/* Star Ratings */}
-							<div className="flex justify-center mt-2">
-								{[...Array(5)].map((_, i) => (
-									<StarIcon
-										key={i}
-										className={`w-5 h-5 ${i < Math.floor(guide.rating) ? "text-yellow-400" : "text-gray-300"}`}
-									/>
-								))}
-								<span className="text-gray-500 ml-2">({guide.rating})</span>
-							</div>
-
-							{/* Badges */}
-							<div className="flex justify-center space-x-2 mt-4">
-								{guide.badges.map((badge, index) => (
-									<span key={index} className="flex items-center px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-										<BadgeCheckIcon className="w-4 h-4 mr-1" />
-										{badge}
-									</span>
-								))}
-							</div>
-
-							{/* Contact Button */}
-							<Button variant="outline" className="mt-6">
-								Contact Guide
-							</Button>
-						</motion.div>
-					))}
+							&times;
+						</Button>
+					</div>
 				</div>
-			</div>
-
-      <Gallery />
-
-      {/* <Reviews /> */}
-      {/* <Map /> */}
+			)}
 		</div>
 	);
 }
