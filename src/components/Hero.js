@@ -1,5 +1,7 @@
 'use client'
 import { motion } from 'framer-motion';
+import { Typewriter } from 'react-simple-typewriter';
+
 export default function Hero() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500">
@@ -13,7 +15,15 @@ export default function Hero() {
             className="text-white"
           >
             <h1 className="text-5xl font-bold sm:text-6xl lg:text-7xl">
-              Empower & Explore Together
+              <Typewriter
+                words={['Empower & Explore Together', 'Discover New Horizons', 'Join Us Today']}
+                loop={0}
+                cursor
+                cursorStyle="_"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
             </h1>
             <p className="mt-4 text-lg sm:text-xl lg:text-2xl">
               Whether you want to help others or explore India{"'"}s vast heritage, Cool Shade is the place to begin.

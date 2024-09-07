@@ -2,64 +2,61 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-export function EventsNearMe() {
-  const events = [
+
+export function PlacesNearMe() {
+  const places = [
     {
       id: 1,
-      title: "Rajasthan International Folk Festival",
-      date: "June 15, 2024",
-      location: "Jaipur, Rajasthan",
+      name: "Science City",
+      location: "Science museum in Kolkata, West Bengal",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Jodhpur_RIFF.jpg/500px-Jodhpur_RIFF.jpg",
+        "https://lh3.googleusercontent.com/p/AF1QipNebyxdRvlVoMS-CVtO8Hyc0ZO6NuqKON97nV4p=s1360-w1360-h1020",
     },
     {
       id: 2,
-      title: "Rajasthan's Ragasthan music festival",
-      date: "July 20, 2024",
+      name: "Hawa Mahal",
       location: "Jaipur, Rajasthan",
-      image: "https://static.toiimg.com/photo/62614993/.jpg",
+      image: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQn9d-0JHPDTgWWgmO2UCccv7uPwGvzCt1ovZzTrF-UGofXAcbgKNnYo681RfDCjO7eSU9GKBRP-r6yVWD08duHChJpIq41_xWi1bugbwc",
     },
     {
       id: 3,
-      title: "BITOTSAV - BIT MESRA",
-      date: "August 5, 2024",
-      location: "Ranchi, Jharkhand",
+      name: "Victoria Memorial, Kolkata",
+      location: "Kolkata, West Bengal",
       image:
-        "https://media.licdn.com/dms/image/D4D12AQFQ0Km6ryv2pg/article-cover_image-shrink_720_1280/0/1684268425268?e=2147483647&v=beta&t=UowQLxNvGv-kdC0qeTd13_mFi_sIIxmKwSHoEKzo1Q0",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Victoria_Memorial_situated_in_Kolkata.jpg/1200px-Victoria_Memorial_situated_in_Kolkata.jpg",
     },
     {
       id: 4,
-      title: "Farmers Market",
-      date: "September 12, 2024",
-      location: "Mesra, Jharkhand",
+      name: "Belur Math",
+      location: "Hindu temple in Howrah, West Bengal",
       image:
-        "https://media.istockphoto.com/id/1029301814/photo/farmer-ploughing-field.jpg?s=612x612&w=0&k=20&c=DUfDbLJ_gpkdPJZu3Nu3_Y_wdB64MP1lAoNtus1ewXQ=",
+        "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRlXnUCRVU1SMw6Ca44Vx79lD_4pEER26iHQr3O1P_GrIuqgg1W6XV_1mEShE_-SvaX41aaStuaaYlQutspY6zYyiJwNnZGtwAY2_1EDA",
     },
   ];
   const [showAll, setShowAll] = useState(false);
-  const displayedEvents = showAll ? events : events.slice(0, 3);
+  const displayedPlaces = showAll ? places : places.slice(0, 6);
+
   return (
     <div className="bg-white shadow-sm">
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 className="text-2xl font-bold mb-4">Events Near Me</h2>
+        <h2 className="text-2xl font-bold mb-4">Places Near Me</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedEvents.map((event) => (
+          {displayedPlaces.map((place) => (
             <div
-              key={event.id}
+              key={place.id}
               className="bg-white shadow-sm rounded-lg overflow-hidden"
             >
               <img
-                src={event.image}
-                alt={event.title}
+                src={place.image}
+                alt={place.name}
                 width={400}
                 height={225}
                 className="w-full h-48 object-cover"
                 style={{ aspectRatio: "400/225", objectFit: "cover" }}
               />
               <div className="p-4">
-                <h3 className="text-lg font-bold">{event.title}</h3>
-                <p className="text-gray-500">{event.date}</p>
-                <p className="text-gray-500">{event.location}</p>
+                <h3 className="text-lg font-bold">{place.name}</h3>
+                <p className="text-gray-500">{place.location}</p>
               </div>
             </div>
           ))}
