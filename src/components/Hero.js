@@ -29,17 +29,17 @@ export default function Hero() {
                 animate={{ scale: 1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                Join as Helper
+                Join
               </motion.a>
               {/* Button for Explorers */}
               <motion.a
-                href="#"
+                href="/explore"
                 className="mt-4 sm:mt-0 flex items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-gray-900 rounded-full shadow-lg hover:bg-gray-700 focus:ring-4 focus:ring-gray-800"
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                Explore as User
+                Explore
               </motion.a>
             </div>
           </motion.div>
