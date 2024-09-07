@@ -11,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 p-4">
+    <nav className="sticky top-0 z-50 bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 p-4">
       <div className="container mx-auto flex items-center justify-between relative z-10">
         {/* Logo */}
         <div className="text-white text-3xl font-bold">
