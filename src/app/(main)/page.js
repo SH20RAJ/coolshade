@@ -1,3 +1,4 @@
+import Features from '@/components/Features'
 import FeaturesSection from '@/components/FeaturesSection'
 import Hero from '@/components/Hero'
 import Navbar from '@/components/NavBar'
@@ -9,6 +10,7 @@ export default function page() {
       <Navbar/>
       <Hero/>
       <FeaturesSection/>
+      <Features/>
     </div>
   )
 }
