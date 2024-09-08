@@ -19,11 +19,11 @@ export function ExploreNav() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <Link
-            href="/"
+            href="/explore"
             className="text-2xl font-bold text-primary"
             prefetch={false}
           >
-            <span className="text-primary text-fuchsia-500">cool</span>shade
+            <span className=" text-fuchsia-500">cool</span>shade
           </Link>
           {/* <div className="hidden space-x-4 sm:flex">
             <Button size="sm">Create New Post</Button>

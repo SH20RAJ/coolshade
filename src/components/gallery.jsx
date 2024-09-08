@@ -6,7 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { motion } from "framer-motion";
 import { StarIcon } from "lucide-react";
 
-export default function PlaceShowcasePage() {
+export default function Gallery() {
 	const place = {
 		id: 1,
 		name: "Science City",
@@ -21,7 +21,10 @@ export default function PlaceShowcasePage() {
 		],
 		media: [
 			"https://lh3.googleusercontent.com/p/AF1QipNebyxdRvlVoMS-CVtO8Hyc0ZO6NuqKON97nV4p=s1360-w1360-h1020",
-			"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Victoria_Memorial_situated_in_Kolkata.jpg/1200px-Victoria_Memorial_situated_in_Kolkata.jpg",
+			"https://sciencecitykolkata.org.in/wp-content/uploads/2024/04/5-Combined-Rates-for-Entry-to-Science-City-and-the-Picnic-Park-w.e.f.-01.04.2024-1-1.png",
+			"https://sciencecitykolkata.org.in/wp-content/uploads/2020/02/banner.jpg",
+			"https://sciencecitykolkata.org.in/wp-content/uploads/2020/02/st-gallery3-final300.jpg",
+			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjTrvrfPXBpQmn3eZu3oEhIUOGiOtojkY5XQ&s"
 		],
 	};
 
