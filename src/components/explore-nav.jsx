@@ -88,7 +88,7 @@ export function ExploreNav() {
                 <Button variant="ghost" size="icon">
                   <Avatar className="h-8 w-8 rounded-full">
                     <AvatarImage
-                      src="/placeholder-user.jpg"
+                      src="https://github.com/sh20raj.png"
                       alt="User Avatar"
                     />
                     <AvatarFallback>JD</AvatarFallback>

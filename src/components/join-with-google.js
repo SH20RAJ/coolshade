@@ -27,9 +27,11 @@ export function JoinWithGoogle() {
             <p className="text-muted-foreground">
               Connect your Google account to get started.
             </p>
-            <Button className="w-full" onClick={() => signIn()}>
-              Join with Google
-            </Button>
+            <Link href="/explore">
+              <Button className="w-full"  >
+                Join with Google
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

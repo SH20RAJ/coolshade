@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Typewriter } from 'react-simple-typewriter';
+import { Typewriter } from "react-simple-typewriter";
 
 import {
   Calculator,
@@ -167,7 +167,11 @@ export function WelcomeToPlace() {
               transition={{ duration: 0.5 }}
             >
               <Typewriter
-                words={['Welcome to Ranchi', 'Discover Ranchi', 'Explore Ranchi']}
+                words={[
+                  "Welcome to Ranchi",
+                  "Discover Ranchi",
+                  "Explore Ranchi",
+                ]}
                 loop={0}
                 cursor
                 cursorStyle="_"
@@ -206,6 +210,17 @@ export function WelcomeToPlace() {
             {showMore ? "See Less" : "See More"}
           </Button>
         </div>
+      </div>
+      <div className="w-full h-[500px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3661.333697172747!2d85.43732607554992!3d23.412309901671403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4fb53f0c27be7%3A0x66180c1cf3c5e704!2sBirla%20Institute%20of%20Technology%20-%20Mesra!5e0!3m2!1sen!2sin!4v1725763735113!5m2!1sen!2sin"
+          width={"100%"}
+          height={450}
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
     </section>
   );
