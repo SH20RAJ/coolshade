@@ -2,6 +2,8 @@
 
 This project is designed to showcase the rich cultural heritage and traditions of India, providing a platform for tourists to discover and explore local foods, drinks, cultural aspects, and tourist spots in various regions. It allows natives and tourists to contribute verified information to create an authentic and immersive experience for users.
 
+> # SIH 2024 Project
+
 ### Project Overview
 
 This web-based platform has two main goals:
